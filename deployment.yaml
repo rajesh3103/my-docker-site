@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-docker-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-docker-site
+  template:
+    metadata:
+      labels:
+        app: my-docker-site
+    spec:
+      containers:
+      - name: my-docker-site
+        image: rajsh06/my-docker-site:latest
+        ports:
+        - containerPort: 80
